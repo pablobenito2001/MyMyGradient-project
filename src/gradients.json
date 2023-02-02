@@ -1,0 +1,50 @@
+[
+    {
+        "id": 0,
+        "name": "DayLight",
+        "gradient": [
+            "fceabb",
+            "f8b500"
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Saturn",
+        "gradient": [
+            "ff8800",
+            "f23dc7"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Argentina's Sky",
+        "gradient": [
+            "ffeb4c",
+            "1bf2ff"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Nebula",
+        "gradient": [
+            "c000ff",
+            "3900d7"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Sia's Color",
+        "gradient": [
+            "c31432",
+            "240b36"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Uranus",
+        "gradient": [
+            "0ac6d9",
+            "001510"
+        ]
+    }
+]
