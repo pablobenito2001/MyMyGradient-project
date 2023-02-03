@@ -10,26 +10,15 @@
 
 <style lang="scss">
 	:root{
-		--gap: 15px;
-		--black: #131313;
-		--glass-black: #1313139f;
+		//Fonts//
+		--font-white: #e2e2e2;
+		--font-black: #4d4d4d;
+		//Elements//
+		--black-background: #1d1d1d;
+		--white-background: #ffffff;
+		--glass-card: #8d8d8d44; 
 		--radius: .625rem; 
-	}
-	.Global--centerAll{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: .1875rem;
-	}
-	.Global--button{
-		width: 100%;
-		padding: 10px;
-		background-color: var(--black);
-		border-radius: var(--radius);
-		cursor: pointer;
-		transition: filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-		&:hover{
-			filter: brightness(180%);
-		}
+		--gap: .9375rem;
+		--transition: 0.6s;
 	}
 </style>

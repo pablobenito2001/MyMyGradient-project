@@ -20,10 +20,12 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        border: solid 2px rgba(0, 0, 0, 0.103);
         &:hover .Color-icon{
             opacity: 1;
         }
         &-icon{
+            color: white;
             opacity: 0;
             transition: opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
         }

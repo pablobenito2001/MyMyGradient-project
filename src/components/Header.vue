@@ -10,7 +10,7 @@
 
 <template>
     <header class="Header">
-        <h1 class="Header-title" :style="{'background': `linear-gradient(90deg, #${ color_1 || 'E96443'} 0%, #${ color_2 || '904E95'} 100%)`, '-webkit-background-clip': 'text'}">MyMyGradient</h1>
+        <h1 class="Header-title" :style="{'background': `linear-gradient(90deg, #${ color_1} 0%, #${ color_2} 100%)`, '-webkit-background-clip': 'text'}">MyMyGradient</h1>
         <span class="Header-name">By Pablo Benito</span>
     </header>
 </template>
@@ -19,7 +19,7 @@
     .Header{
         min-width: 100%;
         padding: var(--gap);
-        background-color: var(--black);
+        background-color: var(--black-background);
         &-title{
             font-weight: bold;
             font-size: 1.4em;

@@ -1,20 +1,26 @@
 <script setup>
     import { ref } from 'vue';
-    import GradientCard from './GradientCard.vue';
+    import GradientCard from './Card/GradientCard.vue';
 
     const dataGradient = ref(null);
 
-    async function FetchData(){
+    (async function FetchData(){
         dataGradient.value = null
         const res = await fetch('/src/gradients.json');
         dataGradient.value = await res.json()
-    }
+    })();
 
-    FetchData();
+    const background = ref("#F7941E 0%, #004E8F 100%")
+
+    function changeBackground(s){
+        background.value = s;
+    }
 </script>
 <template>  
-    <main class="Wrapper">
-        <GradientCard v-for="item in dataGradient" :key="item.id" :colors="item.gradient" :title="item.name"/>
+    <main :style="{'background-image': `linear-gradient(0deg, ${ background })`, 'background-attachment': 'fixed'}" class="Show">
+        <div class="Wrapper">
+            <GradientCard v-for="item in dataGradient" :key="item.id" :colors="item.gradient" :title="item.name" @arrayColor="changeBackground"/>
+        </div>
     </main>
 </template>
 <style scoped lang="scss">

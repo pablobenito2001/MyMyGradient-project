@@ -1,19 +1,21 @@
 <script setup>
-    import { ref ,defineProps, computed } from 'vue';
+    import { ref ,defineProps, computed, defineEmits } from 'vue';
     import ColorCopy from './ColorCopy.vue';
-    import circle from '/src/assets/circle.svg'
+    import CircleInCard from './CircleInCard.vue'
+    import Buttons from '../Buttons.vue'
+
+    const emit = defineEmits(['arrayColor']);
 
     const props = defineProps({
         colors: Array,
         title: String
     });
 
-    const range = ref(0);
-
     const gradient = computed(() => {
         return props.colors.map(elem => elem.join(" ")).join()
     })
 
+    const range = ref(0);
 </script>
 <template>
     <div class="Card">
@@ -21,26 +23,26 @@
             <h3 class="Card-title">{{ title }}</h3>
         </div>
         <div class="Card-input">
-            <img :src="circle" alt="range" class="Card-circle" :style="{'transform': `rotate(${ range }deg)`}">
+            <CircleInCard :style="{'transform': `rotate(${ range }deg)`}"/>
             <input type="range" min="0" max="360" v-model="range" class="Card-range">
         </div>
         <div class="Card-colors">
             <ColorCopy v-for="item in colors" :color="item[0]"/>
         </div>
         <div class="Card-buttons">
-            <button class="Global--button">
-            Show Me
-            </button>
-            <button class="Global--button">
+            <Buttons @click="emit('arrayColor', gradient)">
+                Show Me!
+            </Buttons>
+            <Buttons>
                 Copy CSS
-            </button>
+            </Buttons>
         </div>
     </div>
 </template>
 <style scoped lang="scss">
     .Card{
         padding: .625rem;
-        background-color: var(--glass-black);
+        background-color: var(--glass-card);
         border-radius: var(--radius);
         &-gradient{
             width: 100%;
@@ -64,7 +66,7 @@
         }
         &-range{
             width: 100%;
-            background-color: white;
+            background-color: var(--white-background);
             height: 6px;
             border-radius: .3125rem;
             &::-webkit-slider-thumb{
@@ -72,7 +74,7 @@
                 appearance: none;
                 width: 1.5625rem;
                 height: 1.5625rem;
-                background: var(--black);
+                background: var(--black-background);
                 border: solid .25rem white;
                 border-radius: 100%;
                 cursor: ew-resize;
