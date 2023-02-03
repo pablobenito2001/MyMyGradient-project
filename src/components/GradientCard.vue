@@ -1,18 +1,23 @@
 <script setup>
-    import { ref ,defineProps } from 'vue';
+    import { ref ,defineProps, computed } from 'vue';
+    import ColorCopy from './ColorCopy.vue';
     import circle from '/src/assets/circle.svg'
 
     const props = defineProps({
-        color_1: String,
-        color_2: String,
+        colors: Array,
         title: String
-    })
+    });
 
     const range = ref(0);
+
+    const gradient = computed(() => {
+        return props.colors.map(elem => elem.join(" ")).join()
+    })
+
 </script>
 <template>
     <div class="Card">
-        <div class="Card-gradient" :style="{'background': `linear-gradient(${ range }deg, #${ color_1 || 'c000ff'} 0%, #${ color_2 || '3900d7'} 100%)`}">
+        <div class="Card-gradient" :style="{'background': `linear-gradient(${ range }deg, ${ gradient })`}">
             <h3 class="Card-title">{{ title }}</h3>
         </div>
         <div class="Card-input">
@@ -20,14 +25,15 @@
             <input type="range" min="0" max="360" v-model="range" class="Card-range">
         </div>
         <div class="Card-colors">
-            <div class="Global--centerAll">
-                <div :style="{'background': `#${color_1}`}" class="Card-color"></div>
-                <span>#{{ color_1 }}</span>
-            </div>
-            <div class="Global--centerAll">
-                <div :style="{'background': `#${color_2}`}" class="Card-color"></div>
-                <span>#{{ color_2 }}</span>
-            </div>
+            <ColorCopy v-for="item in colors" :color="item[0]"/>
+        </div>
+        <div class="Card-buttons">
+            <button class="Global--button">
+            Show Me
+            </button>
+            <button class="Global--button">
+                Copy CSS
+            </button>
         </div>
     </div>
 </template>
@@ -35,11 +41,11 @@
     .Card{
         padding: .625rem;
         background-color: var(--glass-black);
-        border-radius: 1.25rem;
+        border-radius: var(--radius);
         &-gradient{
             width: 100%;
             min-height: 12.5rem;
-            border-radius: 1.25rem;
+            border-radius: var(--radius);
             padding: 5px;
         }
         &-title{
@@ -59,7 +65,7 @@
         &-range{
             width: 100%;
             background-color: white;
-            height: 7px;
+            height: 6px;
             border-radius: .3125rem;
             &::-webkit-slider-thumb{
                 -webkit-appearance: none;
@@ -82,11 +88,10 @@
             gap: var(--gap);
             margin-top: var(--gap);
         }
-        &-color{
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            border-radius: 100%;
+        &-buttons{
+            display: flex;
+            gap: var(--gap);
+            margin-top: var(--gap);
         }
     }
 </style>

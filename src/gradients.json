@@ -3,48 +3,132 @@
         "id": 0,
         "name": "DayLight",
         "gradient": [
-            "fceabb",
-            "f8b500"
+            ["#fceabb", "0%"],
+            ["#f8b500", "100%"]
         ]
     },
     {
         "id": 1,
-        "name": "Saturn",
+        "name": "Neo Saturn",
         "gradient": [
-            "ff8800",
-            "f23dc7"
+            ["#ff8800", "0%"],
+            ["#f23dc7", "100%"]
         ]
     },
     {
         "id": 2,
         "name": "Argentina's Sky",
         "gradient": [
-            "ffeb4c",
-            "1bf2ff"
+            ["#ffeb4c", "0%"],
+            ["#1bf2ff", "100%"]
         ]
     },
     {
         "id": 3,
         "name": "Nebula",
         "gradient": [
-            "c000ff",
-            "3900d7"
+            ["#c000ff", "0%"],
+            ["#3900d7", "100%"]
         ]
     },
     {
         "id": 4,
         "name": "Sia's Color",
         "gradient": [
-            "c31432",
-            "240b36"
+            ["#c31432", "0%"],
+            ["#240b36", "100%"]
         ]
     },
     {
         "id": 5,
         "name": "Uranus",
         "gradient": [
-            "0ac6d9",
-            "001510"
+            ["#0ac6d9", "0%"],
+            ["#001510", "100%"]
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Midnight",
+        "gradient": [
+            ["#000c78", "0%"],
+            ["#070914", "100%"]
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Sun Burn",
+        "gradient": [
+            ["#ff8f2d", "0%"],
+            ["#fee62b", "50%"],
+            ["#ff3232", "100%"]
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Island Breeze",
+        "gradient": [
+            ["#00eef4", "0%"],
+            ["#00f89a", "53%"],
+            ["#0086ff", "100%"]
+        ]
+    },
+    {
+        "id": 9,
+        "name": "FIRE & WATER",
+        "gradient": [
+            ["#00eef4", "0%"],
+            ["#ff0000", "100%"]
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Galaxy",
+        "gradient": [
+            ["#16415d", "0%"],
+            ["#551a74", "100%"]
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Fruit",
+        "gradient": [
+            ["#ffc000", "0%"],
+            ["#ff55dc", "30%"],
+            ["#feff5a", "70%"],
+            ["#00fbb1", "100%"]
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Sea",
+        "gradient": [
+            ["#1000ff", "0%"],
+            ["#00fbb1", "100%"]
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Pink Friday",
+        "gradient": [
+            ["#e25bff", "0%"],
+            ["#f664a6", "100%"]
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Afterglow",
+        "gradient": [
+            ["#5bff8c", "0%"],
+            ["#f6d764", "100%"]
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Shark",
+        "gradient": [
+            ["#0b00e0", "0%"],
+            ["#adcaff", "100%"]
         ]
     }
 ]
