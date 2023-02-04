@@ -1,11 +1,13 @@
 <script setup>
 	import Header from './components/Header.vue';
 	import CardWrapper from './components/CardWrapper.vue';
+	import Footer from './components/Footer.vue';
 </script>
 
 <template>
 	<Header color_1="F7941E" color_2="004E8F"/>
 	<CardWrapper />
+	<Footer />
 </template>
 
 <style lang="scss">
@@ -20,5 +22,15 @@
 		--radius: .625rem; 
 		--gap: .9375rem;
 		--transition: 0.6s;
+		--hover: #004E8F;
+	}
+	.Global-title{
+		background: linear-gradient(90deg, #F7941E 0%, #004E8F 100%);
+		-webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent;
+		display: inline-block;
+		font-size: 1.4em;
+		user-select: none;
+		font-weight: bold;
 	}
 </style>

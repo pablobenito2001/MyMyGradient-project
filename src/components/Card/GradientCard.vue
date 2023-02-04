@@ -4,7 +4,7 @@
     import CircleInCard from './CircleInCard.vue'
     import Buttons from '../Buttons.vue'
 
-    const emit = defineEmits(['arrayColor']);
+    const emit = defineEmits(['arrayColor', 'degGradient']);
 
     const props = defineProps({
         colors: Array,
@@ -16,6 +16,7 @@
     })
 
     const range = ref(0);
+
 </script>
 <template>
     <div class="Card">
@@ -24,7 +25,7 @@
         </div>
         <div class="Card-input">
             <CircleInCard :style="{'transform': `rotate(${ range }deg)`}"/>
-            <input type="range" min="0" max="360" v-model="range" class="Card-range">
+            <input type="range" min="0" max="360" v-model="range" class="Card-range" @change="emit('degGradient', range)">
         </div>
         <div class="Card-colors">
             <ColorCopy v-for="item in colors" :color="item[0]"/>
@@ -48,7 +49,7 @@
             width: 100%;
             min-height: 12.5rem;
             border-radius: var(--radius);
-            padding: 5px;
+            padding: .3125rem;
         }
         &-title{
             text-align: center;
@@ -67,7 +68,7 @@
         &-range{
             width: 100%;
             background-color: var(--white-background);
-            height: 6px;
+            height: .375rem;
             border-radius: .3125rem;
             &::-webkit-slider-thumb{
                 -webkit-appearance: none;
@@ -75,13 +76,13 @@
                 width: 1.5625rem;
                 height: 1.5625rem;
                 background: var(--black-background);
-                border: solid .25rem white;
+                border: solid .25rem var(--white-background);
                 border-radius: 100%;
                 cursor: ew-resize;
             }
         }
         &-circle{
-            max-width: 28px;
+            max-width: 1.75rem;
         }
         &-colors{
             display: flex;

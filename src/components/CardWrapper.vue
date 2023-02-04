@@ -10,16 +10,21 @@
         dataGradient.value = await res.json()
     })();
 
-    const background = ref("#F7941E 0%, #004E8F 100%")
+    const background = ref("#F7941E 0%, #004E8F 100%");
+    const deg = ref(0)
 
-    function changeBackground(s){
-        background.value = s;
+    function changeBackground(c){
+        // deg.value = 0;
+        background.value = c;
+    }
+    function changeDegBackground(d){
+        deg.value = d;
     }
 </script>
 <template>  
-    <main :style="{'background-image': `linear-gradient(0deg, ${ background })`, 'background-attachment': 'fixed'}" class="Show">
+    <main :style="{'background-image': `linear-gradient(${ deg }deg, ${ background })`, 'background-attachment': 'fixed'}" class="Show">
         <div class="Wrapper">
-            <GradientCard v-for="item in dataGradient" :key="item.id" :colors="item.gradient" :title="item.name" @arrayColor="changeBackground"/>
+            <GradientCard v-for="item in dataGradient" :key="item.id" :colors="item.gradient" :title="item.name" @arrayColor="changeBackground" @degGradient="changeDegBackground"/>
         </div>
     </main>
 </template>

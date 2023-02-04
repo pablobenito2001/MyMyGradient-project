@@ -8,8 +8,8 @@
 </template>
 <style scoped>
     .Circle{
-        width: 35px;
-        height: 35px;
+        width: 2.1875rem;
+        height: 2.1875rem;
         fill: var(--white-background);
     }
 </style>

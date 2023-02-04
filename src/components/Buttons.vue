@@ -8,10 +8,10 @@
 </template>
 <style scoped lang="scss">
     .Button{
-        background-color: #ffffff3b;
+        background-color: #ffffff1a;
         font-weight: bold;
         width: 100%;
-        padding: 10px;
+        padding: .625rem;
         border-radius: var(--radius);
         color: white;
         cursor: pointer;

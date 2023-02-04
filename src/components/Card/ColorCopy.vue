@@ -5,9 +5,17 @@
         color: String
     })
 
+    const copy = () => {
+        try{
+            navigator.clipboard.writeText(props.color);
+        }catch(e){
+            console.error(e, e.status)
+        }
+    }
+
 </script>
 <template>
-    <div class="Color" :style="{background: color}">
+    <div class="Color" :style="{background: color}" @click="copy">
         <font-awesome-icon icon="fa-solid fa-copy" class="Color-icon"/>
     </div>
 </template>
