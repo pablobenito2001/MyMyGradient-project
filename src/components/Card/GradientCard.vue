@@ -17,6 +17,14 @@
 
     const range = ref(0);
 
+    const copyBackgroun = () => {
+        try{
+            navigator.clipboard.writeText(`background: linear-gradient(${ range.value }deg, ${ gradient.value })`);
+        }catch(e){
+            console.error(e, error.status)
+        }
+    }
+
 </script>
 <template>
     <div class="Card">
@@ -32,9 +40,9 @@
         </div>
         <div class="Card-buttons">
             <Buttons @click="emit('arrayColor', gradient)">
-                Show Me!
+                Show Gradient
             </Buttons>
-            <Buttons>
+            <Buttons @click="copyBackgroun">
                 Copy CSS
             </Buttons>
         </div>
