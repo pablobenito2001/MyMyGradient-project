@@ -3,7 +3,7 @@
         <GradientCard 
         v-for="item in data"
         :key="item.id"
-        :gradient-color="item.gradient"
+        :gradient-color="item.colors"
         :deg="item.deg"
         />
     </GradientCardLayout>
