@@ -2,9 +2,9 @@
     <div class="Card">
         <div 
         class="Card-gradient" 
-        :style="{'background': `linear-gradient(${ degRef }deg, ${ stringColor }`, '--main-color': `${ gradientColor[0].color }`}"
+        :style="{'background': `linear-gradient(${ degRef }deg, ${ stringColor }`, '--main-color': `${ gradientColor[0].color }ce`}"
         >
-            <button class="Card-copy"><i class="fa-solid fa-copy" title="copy gradient"></i></button>
+            <button class="Card-copy" @click="copyGradient"><i class="fa-solid fa-copy" title="copy gradient"></i></button>
         </div >
         <div class="Card-controllerbox">
             <img :src="range" alt="range input" title="range input" class="Card-svg" :style="{'transform': `rotate(${ degRef }deg)`}">
@@ -65,21 +65,26 @@
             elem.length /= 2 
         })
         gradientColor.value.push({color: '#34DCDF', length: 100});
-        if (gradientColor.value.length === 4) {
-            maxColors.value = false
-        }
+    }
+
+    function copyGradient(){
+        navigator.clipboard.writeText(`background: ${ degRef.value }deg, ${ stringColor.value }`);
     }
 
     reColor();
-
-    watch(gradientColor.value, reColor);
+    watch(gradientColor.value, () => {
+        reColor()
+        if (gradientColor.value.length === 4) {
+            maxColors.value = false
+        }
+    });
 </script>
 <style lang="scss" scoped>
     .Card{
         padding: 15px;
         background-color: transparent;
         &:hover > .Card-gradient{
-                box-shadow: 0 0 15px 0px var(--main-color);
+                box-shadow: 0 0 20px 0px var(--main-color);
         }
         &-gradient{
             width: 100%;
@@ -99,7 +104,7 @@
             opacity: 1;
             transition: box-shadow var(--transition-time) cubic-bezier(0.075, 0.82, 0.165, 1); 
             &:hover{
-                box-shadow: 0px 0px 5px var(--white);
+                filter: drop-shadow(0px 0px 1px var(--white));
             }
         }
         &-controllerbox{
@@ -137,6 +142,7 @@
             &::-webkit-color-swatch {
                 border-radius: 50%;
                 border: none;
+                border: solid 3px #0000003b;
             }
             &::-moz-color-swatch {
                 border-radius: .9375rem;
