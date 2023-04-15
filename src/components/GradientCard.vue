@@ -1,11 +1,6 @@
 <template>
     <div class="Card">
-        <div 
-        class="Card-gradient" 
-        :style="{'background': `linear-gradient(${ degRef }deg, ${ stringColor }`, '--main-color': `${ gradientColor[0].color }ce`}"
-        >
-            <button class="Card-copy" @click="copyGradient"><i class="fa-solid fa-copy" title="copy gradient"></i></button>
-        </div >
+        <GradientShow :deg="degRef" :colors="stringColor" :main-color="gradientColor[0].color"/>
         <div class="Card-controllerbox">
             <img :src="range" alt="range input" title="range input" class="Card-svg" :style="{'transform': `rotate(${ degRef }deg)`}">
             <input type="range" min="0" max="360" class="Card-range" v-model="degRef">  
@@ -38,6 +33,8 @@
     import { ref, watch } from 'vue';
     import range from '../assets/svg/range_svg.svg';
 
+    import GradientShow from './GradientShow.vue';
+
     const props = defineProps({
         gradientColor: {
             require: true,
@@ -45,7 +42,7 @@
         },
         deg: {
             require: true,
-            type: Number,
+            type: String,
         }
     });
 
@@ -58,6 +55,9 @@
         stringColor.value = gradientColor.value.map(elem => {
             return `${ elem.color } ${ elem.length }%`
         }).join()
+        if (gradientColor.value.length === 4) {
+            maxColors.value = false
+        }
     }
 
     function addColor(){
@@ -67,46 +67,13 @@
         gradientColor.value.push({color: '#34DCDF', length: 100});
     }
 
-    function copyGradient(){
-        navigator.clipboard.writeText(`background: ${ degRef.value }deg, ${ stringColor.value }`);
-    }
-
     reColor();
-    watch(gradientColor.value, () => {
-        reColor()
-        if (gradientColor.value.length === 4) {
-            maxColors.value = false
-        }
-    });
+    watch(gradientColor.value, reColor);
 </script>
 <style lang="scss" scoped>
     .Card{
         padding: 15px;
         background-color: transparent;
-        &:hover > .Card-gradient{
-                box-shadow: 0 0 20px 0px var(--main-color);
-        }
-        &-gradient{
-            width: 100%;
-            height: 18.75rem;
-            border-radius: .9375rem;
-            margin: 0 0 10px 0;
-            position: relative;
-            transition: box-shadow var(--transition-time) cubic-bezier(0.075, 0.82, 0.165, 1);
-        }
-        &-copy{
-            position: absolute;
-            font-size: 1.5em;
-            color: white;
-            right: .9375rem;
-            top: .9375rem;
-            cursor: pointer;
-            opacity: 1;
-            transition: box-shadow var(--transition-time) cubic-bezier(0.075, 0.82, 0.165, 1); 
-            &:hover{
-                filter: drop-shadow(0px 0px 1px var(--white));
-            }
-        }
         &-controllerbox{
             display: flex;
             align-items: center;
@@ -126,6 +93,9 @@
                 border-radius: 50%;
                 background-color: #bebebe;
                 cursor: ew-resize;
+                &:active{
+                    background-color: #969696;
+                }
             }
         }
         &-svg{
@@ -142,11 +112,12 @@
             &::-webkit-color-swatch {
                 border-radius: 50%;
                 border: none;
-                border: solid 3px #0000003b;
+                border: solid 3px #0000001a;
             }
             &::-moz-color-swatch {
                 border-radius: .9375rem;
                 border: none;
+                border: solid 3px #0000001a;
             }
         }
         &-addColor{
@@ -159,6 +130,11 @@
             font-size: 1.5em;
             color: #bebebe;
             cursor: pointer;
+            transition: background var(--transition-time) cubic-bezier(0.075, 0.82, 0.165, 1), color var(--transition-time) cubic-bezier(0.075, 0.82, 0.165, 1);
+            &:hover{
+                background: #bebebe;
+                color: var(--white);
+            }
         }
         &-lengthBox{
             width: 100%;
