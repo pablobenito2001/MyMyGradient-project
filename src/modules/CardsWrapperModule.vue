@@ -16,7 +16,7 @@
 
     const data = ref(null);
 
-    data.value = await (await fetch('/data/gradients.json')).json();
+    data.value = await (await fetch('data/gradients.json')).json();
 </script>
 <style lang="scss" scoped>
     
