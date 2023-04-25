@@ -104,6 +104,7 @@
         &-inputColorBox{
             display: flex;
             align-items: center;
+            gap: .3125rem;
         }
         &-inputColor{
             width: 2.8125rem;
@@ -115,7 +116,7 @@
                 border: solid 3px #0000001a;
             }
             &::-moz-color-swatch {
-                border-radius: .9375rem;
+                border-radius: 50%;
                 border: none;
                 border: solid 3px #0000001a;
             }
