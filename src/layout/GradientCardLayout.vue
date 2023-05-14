@@ -14,5 +14,6 @@
         max-width: 75rem;
         margin: auto;
         gap: .625rem;
+        background-color: transparent;
     }
 </style>

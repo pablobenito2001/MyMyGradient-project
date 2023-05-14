@@ -93,6 +93,18 @@
                 border-radius: 50%;
                 background-color: #bebebe;
                 cursor: ew-resize;
+                border: unset;
+                &:active{
+                    background-color: #969696;
+                }
+            }
+            &::-moz-range-thumb{
+                -webkit-appearance: none;
+                height: 1.25rem;
+                width: 1.25rem;
+                border-radius: 50%;
+                background-color: #bebebe;
+                cursor: ew-resize;
                 &:active{
                     background-color: #969696;
                 }
@@ -162,6 +174,17 @@
                 border-radius: 50%;
                 background: var(--color);
                 cursor: ew-resize;
+                border: unset;
+            }
+            &::-moz-range-thumb{
+                pointer-events: auto;
+                appearance: none;
+                width: 1.25rem;
+                height: 1.25rem;
+                border-radius: 50%;
+                background: var(--color);
+                cursor: ew-resize;
+                border: unset;
             }
         }
     }

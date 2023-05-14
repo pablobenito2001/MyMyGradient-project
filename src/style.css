@@ -10,7 +10,7 @@
     --animation-time: 1.2s;
       /* color general */
       --black: #1D1D1D;
-      --white: #EFEFEF;
+      --white: #f8f8f8;
       --grey: #e7e7e7;
 }
 
@@ -34,6 +34,7 @@ body {
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: var(--white);
 }
 
 img, picture, video, iframe, figure {
